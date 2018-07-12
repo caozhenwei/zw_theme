@@ -1,0 +1,40 @@
+<!-- <section class="archive">
+  <ul class="post-archive">
+    <% site.posts.each(function (post) { %>
+      <li class="post-item">
+        <span class="post-date"><%= date(post.date, "YYYY-MM-DD") %></span>
+        <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+      </li>
+    <% }) %>
+  </ul>
+</section>
+ -->
+<% var last; %>
+	<% site.posts.sort('-date').map(function(post, i){ %>
+		<% var year = post.date.year(); %>
+		<% if (last != year){ %>
+		  <% if (last != null){ %>
+		    </div></section>
+		  <% } %>
+		  <% last = year; %>
+		  <section class="archives-wrap">
+		    <div class="archive-year-wrap">
+		      <h1>
+		      	<a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %>
+		      	</a>
+		      </h1>
+		    </div>
+		    <div class="archives">
+		<% } %>
+		
+		<div>
+			<span class="post-date"><%= date(post.date, "YYYY-MM-DD") %></span>
+			<a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>	
+		</div>
+		
+	<% }) %>
+	<% if (site.posts.length){ %>
+		</div></section>
+	<% } %>
+
+
