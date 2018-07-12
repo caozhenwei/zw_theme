@@ -1,5 +1,6 @@
 <header class="header">
   <div class="blog-title">
+    <img src="<%- partial('post/urlconvert', {tempUrl: theme.avatar_url}) %>" style="width: 150px;height: 150px">
     <a href="<%- url_for() %>" class="logo"><%= config.title %></a>
   </div>
   <nav class="navbar">
