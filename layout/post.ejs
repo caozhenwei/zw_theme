@@ -1,11 +1,29 @@
-<article class="post">
-  <div class="post-title">
+<article class="article">
+  <!-- 标题 -->
+  <div class="article-title">
     <h2 class="title"><%= page.title %></h2>
   </div>
-   <div class="post-meta">
-    <span class="post-time"><%- date(page.date, "YYYY-MM-DD") %></span>
+
+  <!-- 时间 -->
+  <div class="article-meta">
+    <span class="article-time"><%- date(page.date, "YYYY-MM-DD") %></span>
   </div>
-  <div class="post-content">
+
+  <!-- 文章内容 -->
+  <div class="article-content">
     <%- page.content %>
   </div>
 </article>
+
+<aside id="toc-sidebar">
+	<div id="toc" class="toc-article">
+	<strong class="toc-title"><%= __('目录') %></strong>
+	<% if (toc(page.content) != ""){ %>
+	    <%- toc(page.content, { class: "nav", list_number: false }) %>
+	<% } else { %>
+	    <ol class="nav"><%= __('空') %></ol>
+	<% } %>
+	</div>
+</aside>
+
+<%- partial('_partial/footer') %>
