@@ -15,7 +15,7 @@
 		    <div class="archives">
 		<% } %>
 		
-		<div>
+		<div class="archive-date-and-title">
 			<span class="archive-post-date"><%= date(post.date, "YYYY-MM-DD") %></span>
 			<a class="archive-post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>	
 		</div>
