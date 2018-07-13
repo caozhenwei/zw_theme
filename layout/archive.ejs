@@ -16,14 +16,14 @@
 		<% } %>
 		
 		<div>
-			<span class="post-date"><%= date(post.date, "YYYY-MM-DD") %></span>
-			<a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>	
+			<span class="archive-post-date"><%= date(post.date, "YYYY-MM-DD") %></span>
+			<a class="archive-post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>	
 		</div>
 		
 	<% }) %>
 	<% if (site.posts.length){ %>
 		</div></section>
 	<% } %>
-	
+
 <%- partial('_partial/footer') %>
 
